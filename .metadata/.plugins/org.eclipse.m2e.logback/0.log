@@ -1,0 +1,4 @@
+2024-04-22 11:01:36,571 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-04-22 11:07:32,104 [Worker-17: https://download.eclipse.org/usssdk/drops/milestone/S20191118-183434-1.2.1-RC1/p2.index] INFO  o.a.h.c.h.i.c.HttpRequestRetryExec - Recoverable I/O exception (java.net.SocketException) caught when processing request to {s}->https://download.eclipse.org:443
+2024-04-22 11:07:47,253 [Worker-8: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-04-23 09:39:46,269 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
