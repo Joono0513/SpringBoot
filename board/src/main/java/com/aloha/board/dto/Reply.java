@@ -14,4 +14,5 @@ public class Reply {
     private String content;
     private Date regDate;
     private Date updDate;
+    
 }

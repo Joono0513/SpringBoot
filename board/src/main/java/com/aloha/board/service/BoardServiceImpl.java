@@ -2,10 +2,8 @@ package com.aloha.board.service;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.aloha.board.dto.Board;
@@ -25,6 +23,9 @@ public class BoardServiceImpl implements BoardService {
     @Autowired
     private FileService fileService;
 
+    @Autowired
+    private ReplyService replyService;
+
     @Override
     public List<Board> list(Page page, Option option) throws Exception {
         // 게시글 데이터 개수 조회
@@ -42,11 +43,6 @@ public class BoardServiceImpl implements BoardService {
      */
     @Override
     public Board select(int no) throws Exception {
-        // TODO : boardMapper 로 select(no) 호출
-        /*
-         *        ➡ Board board 로 받아옴
-         *        ➡ return board
-         */
         Board board = boardMapper.select(no);
         // boardMapper.view(no);
         // 추가 작업
@@ -58,11 +54,6 @@ public class BoardServiceImpl implements BoardService {
      */
     @Override
     public int insert(Board board) throws Exception {
-        // TODO : boardMapper 로 insert(Board) 호출
-        /*
-        *        ➡ int result 로 데이터 처리 행(개수) 받아옴
-        *        ➡ return result
-        */
         int result = boardMapper.insert(board);
 
         // 파일 업로드
@@ -103,11 +94,6 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public int update(Board board) throws Exception {
-        // TODO : boardMapper 로 update(Board) 호출
-        /*
-         *        ➡ int result 로 데이터 처리 행(개수) 받아옴
-         *        ➡ return result
-         */
         int result = boardMapper.update(board);
         return result;
     }
@@ -117,12 +103,11 @@ public class BoardServiceImpl implements BoardService {
      */
     @Override
     public int delete(int no) throws Exception {
-        // TODO : boardMapper 로 delete(no) 호출
-        /*
-         *        ➡ int result 로 데이터 처리 행(개수) 받아옴
-         *        ➡ return result
-         */
         int result = boardMapper.delete(no);
+        if( result > 0) {
+            result += replyService.deleteByBoardNo(no);
+        }
+
         return result;
     }
 
