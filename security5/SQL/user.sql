@@ -60,7 +60,8 @@ INSERT INTO user_auth ( user_id,  auth )
 VALUES ( 'admin', 'ROLE_ADMIN' );
 
 SELECT *
-FROM `user`;
+FROM user;
 
 SELECT *
 FROM user_auth;
+
