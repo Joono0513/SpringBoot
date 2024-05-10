@@ -34,11 +34,17 @@
             <tr>
                 <td align="center" th:text="${board.no}"></td>
                 <td>
+                    <!-- th:???="|문자열+${표현식}|" -->
                     <a th:href="|/board/read?no=${board.no}|" 
                     th:text="${board.title}"></a>
                 </td>
                 <td align="center" th:text="${board.writer}">
                 </td>
+                <!-- 
+                    유틸리티객체.메소드()
+                    #dates.format( 날짜객체명, '날짜포맷' ) 
+                    - #dates.format( board.regDate, 'yyyy-MM-dd HH:mm:ss' )
+                -->
                 <td align="center">
                     <span th:text="${#dates.format(board.regDate,'yyyy-MM-dd HH:mm:ss')}"></span>
                 </td>
@@ -48,8 +54,6 @@
                 <td align="center" th:text="${board.views}"></td>
             </tr>
         </th:block>
-       
-            
     </table>
 </body>
 </html>
